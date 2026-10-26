@@ -1,0 +1,175 @@
+/* ---------- Fonts ---------- */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap");
+
+/* ---------- Design tokens: change these to re-theme the whole page ---------- */
+:root {
+  --bg: #0f0d12;
+  --surface: #1a1720;
+  --surface-border: #2c2733;
+  --text: #f2ede4;
+  --muted: #a39cab;
+  --accent: #e0a84a;
+  --accent-dark: #b98529;
+  --radius: 16px;
+}
+
+/* ---------- Reset + base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  text-align: center;
+  padding: 4rem 1.5rem 2rem;
+  background: radial-gradient(circle at 50% 0%, rgba(224, 168, 74, 0.15), transparent 60%);
+}
+
+.title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  color: var(--accent);
+  letter-spacing: 0.02em;
+}
+
+.title-text {
+  max-width: 480px;
+  margin: 0.75rem auto 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+/* ---------- Order section (heading + button) ---------- */
+.form {
+  text-align: center;
+  padding: 1.5rem 1.5rem 2rem;
+}
+
+.checks {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.order-btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background: var(--accent);
+  color: #1a1206;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 999px;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.order-btn:hover {
+  background: var(--accent-dark);
+  transform: translateY(-2px);
+}
+
+/* ---------- Drink card ---------- */
+.drinks {
+  max-width: 900px;
+  margin: 0 auto 4rem;
+  padding: 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+
+  /* Mobile first: stacked. Desktop layout is added below. */
+  display: grid;
+  gap: 0.5rem;
+}
+
+.drink-image {
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto 1rem;
+  border-radius: var(--radius);
+  display: block;
+}
+
+.drink-name {
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem;
+  color: var(--accent);
+}
+
+.drink-category,
+.drink-glass,
+.drink-type {
+  color: var(--muted);
+}
+
+.drinks strong {
+  color: var(--text);
+}
+
+.drinks h3 {
+  margin-top: 1rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+}
+
+/* Ingredients as a clean list with gold bullets */
+.drink-ingredient {
+  list-style: none;
+  display: grid;
+  gap: 0.25rem;
+}
+
+.drink-ingredient li::before {
+  content: "•";
+  color: var(--accent);
+  margin-right: 0.5rem;
+}
+
+.instruction {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--surface-border);
+}
+
+/* ---------- Error message ---------- */
+.error {
+  text-align: center;
+  color: #ff8a80;
+  padding: 1rem;
+}
+
+/* ---------- Desktop: image on the left, details on the right ---------- */
+@media (min-width: 768px) {
+  .drinks {
+    grid-template-columns: 320px 1fr;
+    column-gap: 2rem;
+    align-items: start;
+    padding: 2rem;
+  }
+
+  /* Image spans every row on the left side */
+  .drink-image {
+    grid-column: 1;
+    grid-row: 1 / span 20;
+    margin: 0;
+  }
+
+  /* Everything else goes in the right column */
+  .drinks > *:not(.drink-image) {
+    grid-column: 2;
+  }
+}

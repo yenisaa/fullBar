@@ -1,0 +1,40 @@
+<%- include('partials/header.ejs') %>
+
+<section class="hero">
+  <h1 class="title">Welcome to the fullBar🍸</h1>
+  <p class="title-text">
+    We give you the ultimate satisfaction you can possibly chug down
+  </p>
+</section>
+
+<section class="form">
+  <h2 class="checks">Click to order your next drink</h2>
+  <p><a href="/" class="order-btn">Order a drink</a></p>
+</section>
+
+<section class="drinks">
+  <% if (err) { %>
+    <p class="error"><%= err %></p>
+  <% } else { %>
+    <img src="<%= drink.strDrinkThumb %>" alt="<%= drink.strDrink %>" class="drink-image" />
+    <h2 class="drink-name"><strong>Drink:</strong> <%= drink.strDrink %></h2>
+    <p class="drink-category"><strong>Category:</strong> <%= drink.strCategory %></p>
+    <p class="drink-glass"><strong>Glass:</strong> <%= drink.strGlass %></p>
+    <p class="drink-type"><strong>Type:</strong> <%= drink.strAlcoholic %></p>
+
+    <h3>Ingredients</h3>
+    <ul class="drink-ingredient">
+      <% for (let i = 1; i <= 15; i++) { %>
+        <% const ingredient = drink["strIngredient" + i]; %>
+        <% const measure = drink["strMeasure" + i]; %>
+        <% if (ingredient) { %>
+          <li><%= measure || "" %> <%= ingredient %></li>
+        <% } %>
+      <% } %>
+    </ul>
+
+    <p class="instruction"><strong>Instructions:</strong> <%= drink.strInstructions %></p>
+  <% } %>
+</section>
+
+<%- include('partials/footer.ejs') %>
