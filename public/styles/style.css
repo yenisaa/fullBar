@@ -152,6 +152,19 @@ body {
   padding: 1rem;
 }
 
+/* ---------- Footer styles ----------- */
+
+footer{
+  margin: 0 inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 5px;
+
+}
+
+
 /* ---------- Desktop: image on the left, details on the right ---------- */
 @media (min-width: 768px) {
   .drinks {

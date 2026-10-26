@@ -4,6 +4,9 @@ A simple web app that serves you a random cocktail. Built as a capstone project 
 
 Each time you click "Order a drink", the server fetches a random cocktail from [TheCocktailDB API](https://www.thecocktaildb.com/api.php) and shows its image, category, glass, ingredients and instructions.
 
+# Screenshot
+![screenshot](public/images/screenshot.png)
+
 ## Features
 - Random cocktail on every request
 - Ingredients list with measures
@@ -79,6 +82,9 @@ Data comes from [TheCocktailDB](https://www.thecocktaildb.com/api.php). The free
 - Search for a cocktail by name
 - Filter by category or alcoholic / non-alcoholic
 - Save favourite drinks
+
+# Link
+[Click to visit the website](https://fullbar.onrender.com)
 
 # Author
 Built by Isaiah Ayomide Yenou as a part of the Complete Web Development Bootcamp by Dr. Angela Yu.
